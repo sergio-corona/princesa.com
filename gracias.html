@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      position: relative;
+    }
+    .jar {
+      width: 200px;
+      height: 300px;
+      background-color: #f0e68c;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lid {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 20px solid #f0e68c;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .rose {
+      font-size: 50px; /* Tamaño inicial más pequeño */
+      margin-top: 20px;
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: rose-grow 5s ease-in-out forwards;
+    }
+    .rose:before {
+      content: "🌹";
+    }
+    @keyframes rose-grow {
+      0% {
+        font-size: 50px; /* Tamaño inicial más pequeño */
+        bottom: -100px;
+      }
+      100% {
+        font-size: 200px; /* Tamaño final más grande */
+        bottom: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="jar">
+      <div class="lid"></div>
+    </div>
+    <h1>¡Gracias!</h1>
+    <div class="rose"></div>
+  </div>
+</body>
+</html>

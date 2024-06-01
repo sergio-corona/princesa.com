@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <style>
+    /* Estilos CSS básicos para el formulario */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario</h1>
+    <p>De favor: </p>
+    
+    <!-- Aquí agregamos el formulario -->
+    <form id="contact-form" action="https://formspree.io/f/xpzvgqzk" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" >
+      
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" >
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono" >
+      
+      <button type="submit">Enviar</button>
+      <div id="error-message" class="error"></div>
+    </form>
+  </div>
+
+  <!-- Script JavaScript para validar el formulario y redirigir después del envío -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      var nombreInput = document.getElementById('nombre');
+      var apellidoInput = document.getElementById('apellido');
+      var telefonoInput = document.getElementById('telefono');
+      var errorMessage = document.getElementById('error-message');
+
+      if (nombreInput.value.trim() === '') {
+        errorMessage.textContent = 'Por favor, introduce tu nombre.';
+        event.preventDefault();
+        return;
+      }
+
+      if (apellidoInput.value.trim() === '') {
+        errorMessage.textContent = 'Por favor, introduce tu apellido.';
+        event.preventDefault();
+        return;
+      }
+
+      if (telefonoInput.value.trim() === '') {
+        errorMessage.textContent = 'Por favor, introduce tu número de teléfono.';
+        event.preventDefault();
+        return;
+      }
+
+      // Limpiar mensaje de error si el formulario es válido
+      errorMessage.textContent = '';
+
+      // Redirigir al usuario a gracias.html después de enviar el formulario
+      window.location.href = 'gracias.html';
+    });
+  </script>
+</body>
+</html>
